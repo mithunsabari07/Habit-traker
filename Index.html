@@ -143,6 +143,74 @@
             box-shadow: var(--shadow);
         }
 
+        /* --- QUICK GUIDE --- */
+        .quick-guide {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 1px solid var(--primary-light);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .quick-guide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .quick-guide h2 {
+            margin: 0;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .guide-toggle {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .guide-toggle:hover {
+            background: var(--primary-dark);
+        }
+        
+        .guide-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .guide-step {
+            background: white;
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .guide-step h4 {
+            margin: 0 0 8px 0;
+            color: var(--primary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .guide-step p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
         /* --- STATS CARDS --- */
         .stats-grid {
             display: grid;
@@ -435,12 +503,80 @@
 
         /* --- FOOTER --- */
         .footer {
-            text-align: center;
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid var(--border);
             color: var(--text-light);
             font-size: 0.85rem;
+        }
+        
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-section h4 {
+            margin: 0 0 12px 0;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        .footer-section p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-light);
+            color: var(--subtext);
+            font-size: 0.8rem;
+        }
+        
+        .footer-team {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .footer-team .material-icons {
+            font-size: 16px;
         }
         
         .footer a {
@@ -452,9 +588,69 @@
             text-decoration: underline;
         }
 
+        /* --- MODAL --- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            margin: 0;
+            color: var(--text);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--subtext);
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            background: var(--border);
+            color: var(--text);
+        }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 1200px) {
-            .stats-grid {
+            .stats-grid, .guide-content {
                 grid-template-columns: repeat(2, 1fr);
             }
             
@@ -474,7 +670,7 @@
                 gap: 16px;
             }
             
-            .stats-grid {
+            .stats-grid, .guide-content {
                 grid-template-columns: 1fr;
             }
             
@@ -484,6 +680,11 @@
             
             table {
                 min-width: 800px;
+            }
+            
+            .footer-main {
+                flex-direction: column;
+                gap: 20px;
             }
         }
     </style>
@@ -511,6 +712,32 @@
         <button class="btn-reset" onclick="resetAllData()">
             <span class="material-icons">restart_alt</span> Reset All Data
         </button>
+    </div>
+
+    <!-- QUICK GUIDE -->
+    <div class="quick-guide">
+        <div class="quick-guide-header">
+            <h2><span class="material-icons" style="margin-right:8px;">help_outline</span> Quick Guide</h2>
+            <button class="guide-toggle" onclick="toggleGuide()">Show/Hide Guide</button>
+        </div>
+        <div class="guide-content" id="guideContent">
+            <div class="guide-step">
+                <h4><span class="material-icons">edit</span> Edit Habits</h4>
+                <p>Click on habit names to edit them. Set monthly goals for each habit.</p>
+            </div>
+            <div class="guide-step">
+                <h4><span class="material-icons">check_box</span> Track Daily</h4>
+                <p>Check boxes for each day you complete a habit. Today's column is highlighted.</p>
+            </div>
+            <div class="guide-step">
+                <h4><span class="material-icons">add_circle</span> Add New</h4>
+                <p>Use "Add New Habit" button to create new habits you want to track.</p>
+            </div>
+            <div class="guide-step">
+                <h4><span class="material-icons">analytics</span> View Analytics</h4>
+                <p>Monitor progress with charts showing daily, weekly, and monthly trends.</p>
+            </div>
+        </div>
     </div>
 
     <!-- STATS CARDS -->
@@ -616,7 +843,102 @@
 
     <!-- FOOTER -->
     <div class="footer">
-        <p>HabitTracker Pro &copy; 2023 | Data is stored locally in your browser | <a href="javascript:void(0)" onclick="exportData()">Export Data</a> | <a href="javascript:void(0)" onclick="importData()">Import Data</a></p>
+        <div class="footer-main">
+            <div class="footer-section">
+                <h4>About HabitTracker Pro</h4>
+                <p>HabitTracker Pro is a powerful, intuitive habit-building dashboard designed to help you build and maintain positive daily routines. Our mission is to make habit tracking simple, visual, and motivating.</p>
+                <p>Track your progress, visualize your consistency, and achieve your personal goals with our comprehensive analytics and easy-to-use interface.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="javascript:void(0)" onclick="showModal('about')">About Us</a></li>
+                    <li><a href="javascript:void(0)" onclick="showModal('privacy')">Privacy Policy</a></li>
+                    <li><a href="javascript:void(0)" onclick="showModal('terms')">Terms of Service</a></li>
+                    <li><a href="javascript:void(0)" onclick="exportData()">Export Data</a></li>
+                    <li><a href="javascript:void(0)" onclick="importData()">Import Data</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><strong>Email:</strong> <a href="mailto:mithunsabari17@gmail.com">mithunsabari17@gmail.com</a></p>
+                <p><strong>Support:</strong> For technical support or feature requests</p>
+                <p><strong>Feedback:</strong> We welcome your suggestions to improve HabitTracker Pro</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>HabitTracker Pro &copy; 2023-2026 | Data is stored locally in your browser for privacy</p>
+            <div class="footer-team">
+                <span class="material-icons">groups</span>
+                <span>Developed by Team Nexus</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODALS -->
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">About HabitTracker Pro</h3>
+            <button class="close-modal" onclick="closeModal('aboutModal')">&times;</button>
+        </div>
+        <p>HabitTracker Pro is a sophisticated habit-tracking application designed to help individuals build and maintain positive daily routines. Our platform combines intuitive design with powerful analytics to make habit formation easier and more engaging.</p>
+        <p><strong>Key Features:</strong></p>
+        <ul>
+            <li>Track unlimited habits with customizable goals</li>
+            <li>Visual analytics with daily, weekly, and monthly reports</li>
+            <li>Progress tracking with insightful charts and graphs</li>
+            <li>Data privacy - all data stored locally in your browser</li>
+            <li>Export/import functionality for data backup</li>
+            <li>Responsive design for all devices</li>
+        </ul>
+        <p>Version: 2.0.0 | Released: 2026</p>
+    </div>
+</div>
+
+<div id="privacyModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Privacy Policy</h3>
+            <button class="close-modal" onclick="closeModal('privacyModal')">&times;</button>
+        </div>
+        <p><strong>Your Privacy Matters</strong></p>
+        <p>HabitTracker Pro is designed with privacy as a core principle. Here's how we handle your data:</p>
+        <p><strong>Data Storage:</strong> All your habit data is stored locally in your browser's localStorage. No data is sent to external servers or third parties.</p>
+        <p><strong>Data Ownership:</strong> You own 100% of your data. You can export it anytime as a JSON file and delete it completely by using the "Reset All Data" button.</p>
+        <p><strong>Cookies:</strong> We don't use tracking cookies or analytics cookies. The application uses only essential browser storage for functionality.</p>
+        <p><strong>Third Parties:</strong> We don't share data with any third parties because we don't collect any data.</p>
+        <p><strong>Changes to Policy:</strong> Any updates to this privacy policy will be reflected in the application.</p>
+        <p>Last updated: January 2026</p>
+    </div>
+</div>
+
+<div id="termsModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Terms of Service</h3>
+            <button class="close-modal" onclick="closeModal('termsModal')">&times;</button>
+        </div>
+        <p><strong>Acceptance of Terms</strong></p>
+        <p>By using HabitTracker Pro, you agree to these terms of service.</p>
+        <p><strong>Use of Service</strong></p>
+        <p>HabitTracker Pro is provided "as is" without warranties of any kind. While we strive to provide a reliable service, we cannot guarantee uninterrupted access or data preservation.</p>
+        <p><strong>User Responsibilities</strong></p>
+        <p>You are responsible for:</p>
+        <ul>
+            <li>Regularly exporting your data for backup</li>
+            <li>Using the application in compliance with applicable laws</li>
+            <li>Maintaining the security of your device and browser</li>
+        </ul>
+        <p><strong>Limitation of Liability</strong></p>
+        <p>Team Nexus is not liable for any data loss, interruption of service, or damages resulting from the use of HabitTracker Pro.</p>
+        <p><strong>Changes to Terms</strong></p>
+        <p>We may update these terms from time to time. Continued use of the application constitutes acceptance of updated terms.</p>
+        <p>Effective: January 2026</p>
     </div>
 </div>
 
@@ -799,6 +1121,48 @@
             plugins: { legend: { display: false }, tooltip: { enabled: false } }
         }
     });
+
+    // --- MODAL FUNCTIONS ---
+    function showModal(modalType) {
+        let modalId = '';
+        switch(modalType) {
+            case 'about':
+                modalId = 'aboutModal';
+                break;
+            case 'privacy':
+                modalId = 'privacyModal';
+                break;
+            case 'terms':
+                modalId = 'termsModal';
+                break;
+        }
+        document.getElementById(modalId).style.display = 'flex';
+    }
+    
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    }
+
+    // --- GUIDE FUNCTIONS ---
+    function toggleGuide() {
+        const guideContent = document.getElementById('guideContent');
+        const guideToggle = document.querySelector('.guide-toggle');
+        
+        if (guideContent.style.display === 'none') {
+            guideContent.style.display = 'grid';
+            guideToggle.textContent = 'Hide Guide';
+        } else {
+            guideContent.style.display = 'none';
+            guideToggle.textContent = 'Show Guide';
+        }
+    }
 
     // --- LOGIC ---
 
